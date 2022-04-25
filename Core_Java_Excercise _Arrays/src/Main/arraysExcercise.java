@@ -161,17 +161,15 @@ public class arraysExcercise {
 		 * Create an array that includes an integer, 3 strings, and 1 double. Print the
 		 * array.
 		 */
-		Object[] mixed = new Object[5];
-		mixed[0] = Integer.valueOf(30);
-		mixed[1] = "OWO";
-		mixed[2] = "UWU";
-		mixed[3] = "OMO";
-		mixed[4] = Double.valueOf(3.5);
-		
-		System.out.println(Arrays.toString(mixed));
-		
- 
-		
-	}
-
-}
+//		Object[] mixed = new Object[5];
+//		mixed[0] = Integer.valueOf(30);
+//		mixed[1] = "OWO";
+//		mixed[2] = "UWU";
+//		mixed[3] = "OMO";
+//		mixed[4] = Double.valueOf(3.5);
+//		
+//		System.out.println(Arrays.toString(mixed));
+//		
+//	}
+//
+//}
