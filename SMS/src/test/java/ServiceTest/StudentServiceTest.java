@@ -20,7 +20,7 @@ public class StudentServiceTest {
         studentService = new StudentService();
     }
 
-    @Test
+    @Test											//Tests for whether or not all the information under student email matches what is expected
     public void testGetStudentByEmail() {
         Student expected = new Student();
         expected.setsEmail("sbowden1@yellowbook.com");
@@ -35,7 +35,7 @@ public class StudentServiceTest {
     }
     
     
-    @Test
+    @Test											
 	public final void testGetStudentCourses() {
         Student expected = new Student();
 		StudentService sService = new StudentService();
