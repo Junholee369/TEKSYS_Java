@@ -14,7 +14,7 @@ import jpa.entitymodels.Course;
 
 public class CourseService implements CourseDAO{
 
-	  @Override
+	  @Override										//This get's all the courses that are saved in the Course table.
 	    public List<Course> getAllCourses() {
 		  Session sess = new Configuration().configure().buildSessionFactory().openSession();
 	        try {

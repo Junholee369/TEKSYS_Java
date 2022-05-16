@@ -20,7 +20,7 @@ import jpa.entitymodels.Student;
 public class StudentService implements StudentDAO{
 
 	@Override
-    public List<Student> getAllStudents() {
+    public List<Student> getAllStudents() {													//This method grabs all existing Students from the database. Returns an exception if there are no students.
 		Session sess = new Configuration().configure().buildSessionFactory().openSession();
         try {
             TypedQuery tq = sess.createQuery("FROM Student");
@@ -35,7 +35,7 @@ public class StudentService implements StudentDAO{
     }
 
     @Override
-    public Student getStudentByEmail(String sEmail) {
+    public Student getStudentByEmail(String sEmail) {											//This method matches the Email with the corresponding Student Name
     	Session sess = new Configuration().configure().buildSessionFactory().openSession();
         String st = "From Student s where s.sEmail = :sEmail";
         Query q = sess.createQuery(st).setParameter("sEmail", sEmail);
@@ -50,7 +50,7 @@ public class StudentService implements StudentDAO{
     }
 
     @Override
-    public Boolean validateStudent(String sEmail, String sPassword) {
+    public Boolean validateStudent(String sEmail, String sPassword) {							//This method checks whether or not the combination of Email and Password matches
     	Session sess = new Configuration().configure().buildSessionFactory().openSession();
         try {
             TypedQuery tQuery = sess.getNamedQuery("validateStudent");
@@ -65,7 +65,7 @@ public class StudentService implements StudentDAO{
     }
 
     @Override
-    public void registerStudentToCourse(String sEmail, int cId) {
+    public void registerStudentToCourse(String sEmail, int cId) {				//Checks whether or not the student is enrolled in a course.
     	Session sess = new Configuration().configure().buildSessionFactory().openSession();
         Transaction t = sess.beginTransaction();
         String hql = "FROM Student s LEFT JOIN FETCH s.sCourses c WHERE s.sEmail = :sEmail";
@@ -75,7 +75,7 @@ public class StudentService implements StudentDAO{
         Student s = (Student) tQuery.getSingleResult();
         Course c = (Course) tQuery2.getSingleResult();
         try {
-            if (s.getsCourses().contains(c)) {
+            if (s.getsCourses().contains(c)) {										//Stops the user if they are already enrolled in this course.
                 System.out.println("You are already registered in that course!");
             } else if (!s.getsCourses().contains(c)) {
                 s.getsCourses().add(c);
@@ -90,7 +90,7 @@ public class StudentService implements StudentDAO{
     }
 
     @Override
-    public List<Course> getStudentCourses(String sEmail) {
+    public List<Course> getStudentCourses(String sEmail) {					//Checks the List of Courses under the Student Email and display all of them.
     	Session sess = new Configuration().configure().buildSessionFactory().openSession();
         try {
             TypedQuery tQuery = sess.getNamedQuery("getStudentCourses");

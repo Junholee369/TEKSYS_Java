@@ -25,7 +25,7 @@ public class SMSRunner {
         SMSRunner sms = new SMSRunner();
         sms.run();
     }
-
+    							//main menu method
     private void run() {
         int userChoice = 0;
         System.out.println("Please type the number you want to select.");
@@ -53,7 +53,7 @@ public class SMSRunner {
         }
     }
 
-    public void runLogin() {
+    public void runLogin() {											
         System.out.println("Plase enter your Email: ");
         String email = sc.nextLine();
         System.out.println("Please enter your password: ");
